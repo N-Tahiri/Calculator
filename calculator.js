@@ -1,18 +1,25 @@
+// Missing: * and / operations, to be added with some fixes
+
 // get base elements
 const output = document.getElementById("output");
 const equal = document.getElementById("equal");
 const reset = document.getElementById("reset");
-reset.addEventListener("click", () => (output.value = ""));
-
-// load all buttons
+const plus = document.getElementById("plus");
+const minus = document.getElementById("minus");
 const numbers = document.querySelectorAll("#number");
+
+// Events
+reset.addEventListener("click", () => (output.value = ""));
+equal.addEventListener("click", () => pressEqual());
+
+// add eventListeners to number buttons
 for (const btn of numbers) {
   btn.addEventListener("click", () => {
     output.value += btn.value;
   });
 }
-// plus
-const plus = document.getElementById("plus");
+
+// plus operation
 plus.addEventListener("click", () => {
   const testResult = checkExistingOperation(output.value);
   if (testResult) {
@@ -22,8 +29,7 @@ plus.addEventListener("click", () => {
   }
 });
 
-// minus
-const minus = document.getElementById("minus");
+// minus operation
 minus.addEventListener("click", () => {
   const testResult = checkExistingOperation(output.value);
   if (testResult) {
@@ -33,8 +39,7 @@ minus.addEventListener("click", () => {
   }
 });
 
-equal.addEventListener("click", () => pressEqual());
-
+// functions
 function pressEqual() {
   const string = output.value;
   const plusIndex = string.indexOf("+");
@@ -61,6 +66,7 @@ function calculate(string, index, operation) {
     }
   }
 }
+
 function checkExistingOperation(string) {
   const plus = string.indexOf("+");
   if (plus !== -1) {
