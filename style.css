@@ -28,10 +28,10 @@ body {
   color: rgb(12, 138, 105);
   font-size: 18px;
   font-weight: bold;
-  border: 1px solid rgb(56, 202, 202);
+  border: 2px solid rgb(56, 202, 202);
 }
 #title {
-  color: brown;
+  color: rgb(3, 150, 143);
 }
 .result {
   margin-bottom: -5px;
